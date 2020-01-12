@@ -229,9 +229,9 @@ bot.on('message', message => {
             log(`failed to interpret command "${message.content}"`, err)
         })
 })
-client.on("ready", () =>{
-    console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setPresence({
+bot.on("ready", () =>{
+    log(`Logged in as ${client.user.tag}!`);
+    .setPresence({
         status: "idle", 
         game: {
             name: "The dancing colors", 
