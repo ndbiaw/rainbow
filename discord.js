@@ -43,7 +43,7 @@ bot.on('warn', warning => {
     log('bot thrown warning', warning)
 })
 bot.on("ready", () =>{
-    log(`Logged in as ${client.user.tag}!`);
+    log(`Logged in as ${bot.user.tag}!`);
     setPresence({
         status: "idle", 
         game: {
