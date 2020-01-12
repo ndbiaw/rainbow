@@ -44,7 +44,7 @@ bot.on('warn', warning => {
 
 bot.on("ready", () => {
     console.log(`Logged in as ${bot.user.tag}!`);
-    client.user.setPresence({
+    bot.user.setPresence({
         status: "online",
         game: {
             name: "hentaivn.net",
