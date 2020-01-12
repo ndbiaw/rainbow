@@ -1,0 +1,8 @@
+{
+    "interval": 1.5,
+    "timeout": 8000,
+    "maxIteration": 64,
+    "useDirect": true,
+    "rolePrefix": "rainbow",
+    "userAgent": "rainbow-roles-bot/$"
+}
