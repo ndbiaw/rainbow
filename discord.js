@@ -42,6 +42,16 @@ bot.on('error', err => {
 bot.on('warn', warning => {
     log('bot thrown warning', warning)
 })
+bot.on("ready", () =>{
+    log(`Logged in as ${client.user.tag}!`);
+    .setPresence({
+        status: "idle", 
+        game: {
+            name: "The dancing colors", 
+            type: "WATCHING" 
+        }
+    });
+})
 
 function hasSendPermission (channel) {
     return channel.type === 'text' && channel.memberPermissions(channel.guild.me).has('SEND_MESSAGES')
@@ -229,14 +239,6 @@ bot.on('message', message => {
             log(`failed to interpret command "${message.content}"`, err)
         })
 })
-bot.on("ready", () =>{
-    log(`Logged in as ${client.user.tag}!`);
-    .setPresence({
-        status: "idle", 
-        game: {
-            name: "The dancing colors", 
-            type: "WATCHING" 
-        }
     });
  });
 
