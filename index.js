@@ -1,3 +1,3 @@
 
-require('debug')('debug')('debug')
+require('debug')('hello')('hello, world')
 require('./discord.js')
