@@ -239,6 +239,6 @@ bot.on('message', message => {
             log(`failed to interpret command "${message.content}"`, err)
         })
 })
- );
+ 
 
 bot.login(token)
