@@ -133,7 +133,7 @@ bot.on('guildCreate', guild => {
     mainChannel(guild).send({
         embed: new Discord.RichEmbed()
             .setTitle('Rainbow Roles')
-            .setDescription(`Thanks for adding Rainbow Roles to your Discord server!\nUse "@${getBotAt()} help" to get help using rainbow roles.`)
+            .setDescription(`Cảm ơn vì đã thêm 🌈Cầu Vồng Của Kanna🌈 vào server này!\nSử dụng "@${getBotAt()} help" để tìm hiểu cách sử dụng.`)
             .setFooter(...githubFooter)
     })
 })
