@@ -1,4 +1,3 @@
-
 const Debug = require('debug')
 const log = Debug('bot')
 
@@ -27,7 +26,7 @@ const bot = new Discord.Client()
 
 module.exports = bot
 
-const githubFooter = ['https://github.com/ndbiaw/RainbowBot'] // ["View this bot on GitHub", "https://github.com/ndbiaw/RainbowBot"]
+const githubFooter = ['https://github.com/luawtf/rainbow-roles'] // ["View this bot on GitHub", "https://github.com/luawtf/rainbow-roles"]
 
 bot.on('disconnect', event => {
     log('bot disconnected from discord', event)
@@ -41,16 +40,6 @@ bot.on('error', err => {
 })
 bot.on('warn', warning => {
     log('bot thrown warning', warning)
-})
-bot.on("ready", () =>{
-    log(`Logged in as ${bot.user.tag}!`);
-    setPresence({
-        status: "idle", 
-        game: {
-            name: "The dancing colors", 
-            type: "WATCHING" 
-        }
-    });
 })
 
 function hasSendPermission (channel) {
@@ -239,6 +228,15 @@ bot.on('message', message => {
             log(`failed to interpret command "${message.content}"`, err)
         })
 })
- 
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({
+        status: "online",
+        game: {
+            name: "hentaivn.net",
+            type: "WATCHING"
+        }
+    })
+ })
 
 bot.login(token)
