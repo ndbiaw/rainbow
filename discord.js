@@ -44,7 +44,7 @@ bot.on('warn', warning => {
 })
 bot.on("ready", () =>{
     log(`Logged in as ${client.user.tag}!`);
-    .setPresence({
+    setPresence({
         status: "idle", 
         game: {
             name: "The dancing colors", 
