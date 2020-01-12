@@ -42,6 +42,16 @@ bot.on('warn', warning => {
     log('bot thrown warning', warning)
 })
 
+bot.on("ready", () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setPresence({
+        status: "online",
+        game: {
+            name: "hentaivn.net",
+            type: "WATCHING"
+        }
+    })
+ })
 function hasSendPermission (channel) {
     return channel.type === 'text' && channel.memberPermissions(channel.guild.me).has('SEND_MESSAGES')
 }
@@ -228,15 +238,6 @@ bot.on('message', message => {
             log(`failed to interpret command "${message.content}"`, err)
         })
 })
-client.on("ready", () =>{
-    console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setPresence({
-        status: "online",
-        game: {
-            name: "hentaivn.net",
-            type: "WATCHING"
-        }
-    })
- })
+
 
 bot.login(token)
