@@ -45,10 +45,10 @@ bot.on('warn', warning => {
 bot.on("ready", () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setPresence({
-        status: "invisible",
+        status: "do not disturb",
         game: {
-            name: "hentaivn.net",
-            type: "WATCHING"
+            name: "Gay",
+            type: "PLAYING"
         }
     })
  })
