@@ -26,7 +26,7 @@ const bot = new Discord.Client()
 
 module.exports = bot
 
-const githubFooter = ['Test Bot'] // ["View this bot on GitHub", "https://github.com/ndbiaw/rainbow"]
+const githubFooter = ['🌈Cầu Vồng Của Kanna🌈'] // ["View this bot on GitHub", "https://github.com/ndbiaw/rainbow"]
 
 bot.on('disconnect', event => {
     log('bot disconnected from discord', event)
@@ -45,10 +45,10 @@ bot.on('warn', warning => {
 bot.on("ready", () => {
     console.log(`Logged in as ${bot.user.tag}!`);
     bot.user.setPresence({
-        status: "invisible",
+        status: "idle",
         game: {
-            name: "Tester",
-            type: "STREAMING"
+            name: "Gay",
+            type: "PLAYING"
         }
     })
  })
