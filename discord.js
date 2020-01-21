@@ -26,7 +26,7 @@ const bot = new Discord.Client()
 
 module.exports = bot
 
-const githubFooter = ['Dev By: Kanna Kobayashi #5493'] // ["View this bot on GitHub", "https://github.com/ndbiaw/rainbow"]
+const githubFooter = ['Programmed by: Kanna Kobayashi #5493'] // ["View this bot on GitHub", "https://github.com/ndbiaw/rainbow"]
 
 bot.on('disconnect', event => {
     log('bot disconnected from discord', event)
