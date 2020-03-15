@@ -1,4 +1,3 @@
-
 const TitleCase = require('titlecase')
 const ColorConvert = require('color-convert')
 const Gradient = require('tinygradient')
@@ -20,38 +19,38 @@ function generateGradient (stops, count, removeLast = false, hsv = false) {
 // Color schemes (complete sets)
 const schemes = {
     // Teal-green gradient.
-    h: {
+    tealtogreen: {
         set: generateGradient(['#1abc9c', '#2ecc71', '#1abc9c'], 8, true),
         name: 'Teal to Green Gradient'
     },
 
     // Orange-red gradient.
-    h: {
+    orangetored: {
         set: generateGradient(['#e67e22', '#e74c3c', '#e67e22'], 8, true),
         name: 'Orange to Red Gradient'
     },
 
     // Blue-purple gradient.
-    n: {
+    bluetopurple: {
         set: generateGradient(['#3498db', '#9b59b6', '#3498db'], 8, true),
         name: 'Blue to Purple Gradient'
     },
 
     // Vivid blue to vivid red swapping.
-    t: {
+    siren: {
         set: ['#f70d1a', '#00aaee'],
         name: 'Siren'
     },
 
     // Red-white-blue swapping.
-    a: {
+    rwb: {
         set: ['#f70d1a', '#ffffff', '#00aaee'],
         name: 'Red White and Blue'
     },
 
     // Pride flag colors slightly adjusted for Discord's dark theme.
     pride: {
-        i: [
+        set: [
             '#ff3e3e', // Red
             '#e67e22', // Orange
             '#f1c40f', // Yellow
