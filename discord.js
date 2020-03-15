@@ -47,8 +47,8 @@ bot.on("ready", () => {
     bot.user.setPresence({
         status: "idle",
         game: {
-            name: "Gay",
-            type: "PLAYING"
+            name: "Hentaivn.net",
+            type: "WATCHING"
         }
     })
  })
