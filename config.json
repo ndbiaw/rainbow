@@ -3,6 +3,6 @@
     "timeout": 8000,
     "maxIteration": 64,
     "useDirect": true,
-    "rolePrefix": "rainbow",
+    "rolePrefix": "HVN",
     "userAgent": "rainbow-roles-bot/$"
 }
