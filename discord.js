@@ -26,7 +26,7 @@ const bot = new Discord.Client()
 
 module.exports = bot
 
-const githubFooter = ['Programmed by: Kanna Kobayashi #5493'] // ["View this bot on GitHub", "https://github.com/ndbiaw/rainbow"]
+const githubFooter = ['Kanna Kobayashi#3444'] // ["View this bot on GitHub", "https://github.com/luawtf/rainbow-roles"]
 
 bot.on('disconnect', event => {
     log('bot disconnected from discord', event)
@@ -42,16 +42,6 @@ bot.on('warn', warning => {
     log('bot thrown warning', warning)
 })
 
-bot.on("ready", () => {
-    console.log(`Logged in as ${bot.user.tag}!`);
-    bot.user.setPresence({
-        status: "idle",
-        game: {
-            name: "Hentaivn.net",
-            type: "WATCHING"
-        }
-    })
- })
 function hasSendPermission (channel) {
     return channel.type === 'text' && channel.memberPermissions(channel.guild.me).has('SEND_MESSAGES')
 }
@@ -133,8 +123,17 @@ bot.on('guildCreate', guild => {
     mainChannel(guild).send({
         embed: new Discord.RichEmbed()
             .setTitle('Rainbow Roles')
-            .setDescription(`Cảm ơn vì đã thêm 🌈Cầu Vồng Của Kanna🌈 vào server này!\nSử dụng "@${getBotAt()} help" để tìm hiểu cách sử dụng.`)
+            .setDescription(`Thanks for adding Rainbow Roles to your Discord server!\nUse "@${getBotAt()} help" to get help using rainbow roles.`)
             .setFooter(...githubFooter)
+    })
+bot.on("ready", () => {
+    console.log(`Logged in as ${bot.user.tag}!`);
+    bot.user.setPresence({
+        status: "do not disturb",
+        game: {
+            name: "Hentaivn.net",
+            type: "WATCHING"
+        }
     })
 })
 
@@ -176,12 +175,12 @@ bot.on('message', message => {
             await message.channel.send({
                 embed: new Discord.RichEmbed()
                     .setTitle('Rainbow Roles Help')
-                    .setDescription(`Sử dụng 🌈Cầu Vồng Của Kanna🌈 rất dễ dàng.\nSử dụng lệnh bằng cách tag bot và thêm câu lệnh phía sau (Ví Dụ: "@${getBotAt()} help")`)
-                    .addField('help', 'Hiện bảng trợ giúp này và các câu lệnh.')
-                    .addField('guide', 'Hiển thị hướng dẫn cài đặt và sử dụng bot.')
-                    .addField('colors', 'Liệt kê những màu có thể sử dụng và tên của chúng.')
-                    .addField('sets', 'Liệt kê tổ hợp màu đã được lập trình trước.')
-                    .addField('pause', 'Tạm dừng tạo tên cầu vồng.')
+                    .setDescription(`Using the Rainbow Roles Discord bot is very easy.\nRun commands by mentioning the bot with the command you want to run. (e.x. "@${getBotAt()} help")`)
+                    .addField('help', 'Show this help page and all available commands.')
+                    .addField('guide', 'Print out the Rainbow Roles setup/usage guide.')
+                    .addField('colors', 'List possible color names for use in defining new roles.')
+                    .addField('sets', 'List all pre-programmed color sets for easy definition of new roles.')
+                    .addField('pause', 'Pause the color rotation of roles.')
                     .setFooter(...githubFooter)
             })
             return
@@ -191,7 +190,7 @@ bot.on('message', message => {
             await message.channel.send({
                 embed: new Discord.RichEmbed()
                     .setTitle('Usage Guide')
-                    .setDescription(`Tạo tên cầu vồng rất đơn giản.\nTạo vai trò mới **dưới vai trò cao nhất bot có được** trong danh sách vai trò. \nSau đó đặt tên chúng thành \`${rolePrefix}-red\` hoặc màu khác như \`${rolePrefix}-bluegreen\`.\nCũng có thể kết hợp nhiều màu như \`${rolePrefix}-red-purple-bluegreen-white\`.\nBot sẽ tự động đổi màu tên theo những màu bạn chọn.\nBạn cũng có thể sử dụng danh sách kết hợp sẵn như \`${rolePrefix}-pride\` hoặc \`${rolePrefix}-orangetored\`.`)
+                    .setDescription(`Creating a rainbow role is simple.\nAdd a new role **below the bot\'s highest role** in the roles list.\nThen, name it \`${rolePrefix}-red\` or another color combo like \`${rolePrefix}-bluegreen\`.\nDashes are allowed too so try \`${rolePrefix}-red-purple-bluegreen-white\`.\nThe bot will automatically start cycling colors for that role.\nYou can also use some special sets like \`${rolePrefix}-pride\` or \`${rolePrefix}-orangetored\`.`)
                     .setFooter(...githubFooter)
             })
             return
@@ -212,7 +211,7 @@ bot.on('message', message => {
                 await message.channel.send({
                     embed: new Discord.RichEmbed()
                         .setTitle('Permission Required')
-                        .setDescription('Xin lỗi, bạn cần quyền quản lý vai trò để bật tắt tên cầu vồng.')
+                        .setDescription('Sorry but you need the "Manage Roles" permission to start/stop the cycling of role colors.')
                         .setFooter(...githubFooter)
                 })
                 return
@@ -221,7 +220,7 @@ bot.on('message', message => {
             await message.channel.send({
                 embed: new Discord.RichEmbed()
                     .setTitle(`Role Cycling ${paused[message.guild.id] ? 'Stopped' : 'Started'}`)
-                    .setDescription(`Tên cầu vồng đã ${paused[message.guild.id] ? 'paused' : 'resumed'} trên máy chủ này.\nSử dụng "pause" để bật tắt tên cầu vồng.`)
+                    .setDescription(`Role color cycling has now been ${paused[message.guild.id] ? 'paused' : 'resumed'} on this server.\nUse "pause" to enable/disable role color cycling.`)
                     .setFooter(...githubFooter)
             })
             return
@@ -230,7 +229,7 @@ bot.on('message', message => {
         await message.channel.send({
             embed: new Discord.RichEmbed()
                 .setTitle('Command Not Found')
-                .setDescription(`Xin lỗi nhưng "${message.cleanContent}" không phải là một câu lệnh đúng.\nSử dụng "help" xem các câu lệnh hợp lệ.`)
+                .setDescription(`Sorry but "${message.cleanContent}" isn't a valid command.\nUse "help" to view possible commands.`)
                 .setFooter(...githubFooter)
         })
     })()
@@ -238,6 +237,5 @@ bot.on('message', message => {
             log(`failed to interpret command "${message.content}"`, err)
         })
 })
-
 
 bot.login(token)
